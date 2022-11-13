@@ -167,24 +167,27 @@ $ds = $chitiethoadon->findIdHD($id);
                     $i = 1;
                     $sum = 0;
                     $discount = 0;
-                    foreach ($ds as $chitiethoadon) : ?>
+                    foreach ($ds as $chitiethoadon) :
+                        $giasp = $sanpham->find($chitiethoadon->sp_id)->gia;
+                        $giamgia = $sanpham->find($chitiethoadon->sp_id)->giamgia;
+                        $giakm = ($giasp - ($giasp * $giamgia / 100)); ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
                             <td><img src="<?= "./uploads/" . $sanpham->find($chitiethoadon->sp_id)->hinhanh ?>" alt="" style="width:100px; height: 100px;"></td>
                             <td><?= $sanpham->find($chitiethoadon->sp_id)->tensanpham ?></td>
                             <td><?= $chitiethoadon->so_luong ?></td>
-                            <td><?= currency_format($chitiethoadon->so_luong * $sanpham->find($chitiethoadon->sp_id)->gia) ?></td>
+                            <td><?= currency_format($giakm * $chitiethoadon->so_luong) ?></td>
                         </tr>
                     <?php
                         $sum += ($chitiethoadon->so_luong * $sanpham->find($chitiethoadon->sp_id)->gia);
-                        $discount += ($chitiethoadon->so_luong * $sanpham->find($chitiethoadon->sp_id)->giamgia);
+                        $discount += ($chitiethoadon->so_luong * $giasp * $giamgia / 100);
                     endforeach ?>
                 </tbody>
             </table>
             <div class="text-dark ml-auto my-5" style="font-size: 20px; width:30%;">
                 <div class="d-flex justify-content-between"><b>Tổng giá sản phẩm:</b><?= currency_format($sum) ?></div>
-                
-                <div class="d-flex justify-content-between"><b>Thành tiền:</b><?= currency_format($sum - $discount) ?></div>
+                <div class="d-flex justify-content-between"><b>Tổng khuyến mãi:</b><?= currency_format(-$discount) ?></div>
+                <div class="d-flex justify-content-between"><b>Thành tiền:</b><?= currency_format($hoadon->thanhtien) ?></div>
             </div>
             <div class="text-right">
                 <?php if ($hoadon->find($id)->trangthai == 0) : ?>

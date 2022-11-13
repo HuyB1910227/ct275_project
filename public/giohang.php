@@ -41,7 +41,6 @@ $dshd = $hoadon->findKH($_SESSION["userID"]);
         <?php include '../partials/header.php' ?>
 
         <main class="row">
-           
 
             <div class="col-12 col-lg-8 m-3 border p-2">
                 <h4 class="text-center font-weight-bold">Danh mục</h4>
@@ -73,11 +72,11 @@ $dshd = $hoadon->findKH($_SESSION["userID"]);
                                 </td>
                                 <form action="xulygiohang.php" onsubmit="return confirm('Bạn có chắc thực hiện thao tác')" name="xulygiohang" method="POST">
                                     <td>
-                                        
+
                                         <div class="input-group" style="width: 150px">
-                                            
+
                                             <input type="number" class="" min="1" max="100" size="3" value="<?= $giohang->so_luong ?>" name="nbSoLuong" style="width: 60px;">
-                                            
+
                                         </div>
                                     </td>
                                     <td>
@@ -135,42 +134,42 @@ $dshd = $hoadon->findKH($_SESSION["userID"]);
             </div>
             <div class="col-12 col-lg-3 mt-3 ">
                 <div class="border p-2 ">
-                <h4 class="text-center font-weight-bold text-info">Đơn hàng</h4>
-                <table class="table">
-                    <thead>
-                        <th>STT</th>
-                        <th>Sản phẩm</th>
-                        <th>Thành tiền</th>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1;
-                        $sum = 0;
-                        foreach ($ds as $giohang) : ?>
-                            <tr>
-                                <td><?= $i++ ?></td>
-                                <td><?= $sanpham->find($giohang->sp_id)->tensanpham ?>
-                                    <span class="font-weight-bold font-italic">
-                                        <?= "x" . $giohang->so_luong ?>
-                                    </span>
-                                </td>
-                                <td class="text-right font-weight-bold">
-                                    <?php
-                                    $giasp = $sanpham->find($giohang->sp_id)->gia;
-                                    $giamgia = $sanpham->find($giohang->sp_id)->giamgia;
-                                    $giakm = ($giasp - ($giasp * $giamgia / 100));
-                                    echo currency_format($giakm);
-                                    ?></td>
-                            </tr>
-                        <?php
-                            $sum += $giakm;
-                        endforeach; ?>
-                    </tbody>
-                </table>
-                <h5>Tổng tiền: <span class="font-weight-bold"><?= currency_format($sum) ?></span> </h5>
-                <form action="thanhtoansanpham.php" method="post" onsubmit="return confirm('Bạn có chắc muốn đặt tất cả sảnp phẩm')">
-                    <input type="hidden" name="thanhtien" value="<?= $sum ?>">
-                    <button class="btn btn-primary w-75 mx-auto d-block" <?= empty($giohang->findKH($_SESSION["userID"])) ? "disabled" : "" ?>>Xác nhận</button>
-                </form>
+                    <h4 class="text-center font-weight-bold text-info">Đơn hàng</h4>
+                    <table class="table">
+                        <thead>
+                            <th>STT</th>
+                            <th>Sản phẩm</th>
+                            <th>Thành tiền</th>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1;
+                            $sum = 0;
+                            foreach ($ds as $giohang) : ?>
+                                <tr>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $sanpham->find($giohang->sp_id)->tensanpham ?>
+                                        <span class="font-weight-bold font-italic">
+                                            <?= "x" . $giohang->so_luong ?>
+                                        </span>
+                                    </td>
+                                    <td class="text-right font-weight-bold">
+                                        <?php
+                                        $giasp = $sanpham->find($giohang->sp_id)->gia;
+                                        $giamgia = $sanpham->find($giohang->sp_id)->giamgia;
+                                        $giakm = ($giasp - ($giasp * $giamgia / 100));
+                                        echo currency_format($giakm);
+                                        ?></td>
+                                </tr>
+                            <?php
+                                $sum += $giakm * $giohang->so_luong;
+                            endforeach; ?>
+                        </tbody>
+                    </table>
+                    <h5>Tổng tiền: <span class="font-weight-bold"><?= currency_format($sum) ?></span> </h5>
+                    <form action="thanhtoansanpham.php" method="post" onsubmit="return confirm('Bạn có chắc muốn đặt tất cả sảnp phẩm')">
+                        <input type="hidden" name="thanhtien" value="<?= $sum ?>">
+                        <button class="btn btn-primary w-75 mx-auto d-block" <?= empty($giohang->findKH($_SESSION["userID"])) ? "disabled" : "" ?>>Xác nhận</button>
+                    </form>
                 </div>
             </div>
         </main>
