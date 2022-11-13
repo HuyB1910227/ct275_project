@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-group">
                     <label for="name" class="font-weight-bold">Tên loại sản phẩm: </label>
                     <input type="text" name="txtTenLoai" class="form-control" maxlen="255" id="name" placeholder="Nhập vào tên loại" value="<?= isset($loaisanpham->tenloai) ? $loaisanpham->tenloai : ''; ?>" />
-                    <span>
+                    <span class="text-danger">
                         <?= isset($errors["tenloai"]) ? $errors["tenloai"] : "" ?>
                     </span>
                 </div>

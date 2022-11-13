@@ -29,7 +29,7 @@ class LoaiSanPham {
 
 	public function validate() {
 		if (!$this->tenloai) {
-			$this->errors['txtTenLoai'] = 'Chưa nhập tên loại!';
+			$this->errors['tenloai'] = 'Chưa nhập tên loại!';
 		} 
 		return empty($this->errors);
 	}

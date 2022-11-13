@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2022 at 11:26 AM
+-- Generation Time: Nov 13, 2022 at 02:14 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -34,41 +34,6 @@ CREATE TABLE `chitiethoadon` (
   `hd_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `chitiethoadon`
---
-
-INSERT INTO `chitiethoadon` (`id`, `so_luong`, `sp_id`, `hd_id`) VALUES
-(1, 1, 1, 1),
-(2, 1, 1, 2),
-(3, 1, 1, 3),
-(4, 11, 1, 4),
-(5, 1, 1, 5),
-(6, 1, 1, 6),
-(7, 1, 1, 7),
-(8, 1, 1, 8),
-(9, 1, 8, 9),
-(10, 1, 8, 10),
-(11, 1, 8, 11),
-(12, 1, 8, 12),
-(13, 1, 8, 13),
-(14, 1, 1, 14),
-(15, 7, 8, 15),
-(16, 1, 1, 16),
-(17, 1, 8, 17),
-(18, 10, 8, 18),
-(19, 1, 1, 21),
-(20, 1, 8, 22),
-(21, 1, 1, 23),
-(22, 1, 8, 24),
-(23, 6, 8, 25),
-(24, 5, 8, 26),
-(25, 3, 26, 27),
-(26, 2, 35, 28),
-(27, 1, 31, 28),
-(28, 3, 36, 28),
-(29, 1, 26, 28);
-
 -- --------------------------------------------------------
 
 --
@@ -81,13 +46,6 @@ CREATE TABLE `giohang` (
   `kh_id` int(11) NOT NULL,
   `so_luong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `giohang`
---
-
-INSERT INTO `giohang` (`id`, `sp_id`, `kh_id`, `so_luong`) VALUES
-(9, 8, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -102,40 +60,6 @@ CREATE TABLE `hoadon` (
   `kh_id` int(11) NOT NULL,
   `thanhtien` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `hoadon`
---
-
-INSERT INTO `hoadon` (`id`, `ngaylap`, `trangthai`, `kh_id`, `thanhtien`) VALUES
-(1, '2022-11-09', '0', 1, 4000000),
-(2, '2022-11-09', '0', 1, 7000000),
-(3, '2022-11-09', '1', 1, 9000000),
-(4, '2022-11-09', '0', 1, 1100000),
-(5, '2022-11-10', '0', 1, 100000),
-(6, '2022-11-10', '0', 1, 100000),
-(7, '2022-11-10', '0', 1, 900000),
-(8, '2022-11-10', '0', 1, 900000),
-(9, '2022-11-10', '0', 1, 2000000),
-(10, '2022-11-10', '0', 1, 2000000),
-(11, '2022-11-10', '0', 1, 2000000),
-(12, '2022-11-10', '0', 1, 2000000),
-(13, '2022-11-10', '0', 1, 2000000),
-(14, '2022-11-10', '0', 1, 900000),
-(15, '2022-11-10', '0', 1, 14000000),
-(16, '2022-11-10', '0', 1, 900000),
-(17, '2022-11-11', '0', 1, 2000000),
-(18, '2022-11-11', '0', 1, 20000000),
-(19, '2022-11-11', '0', 1, 220000),
-(20, '2022-11-11', '0', 1, 2000000),
-(21, '2022-11-11', '0', 1, 900000),
-(22, '2022-11-11', '0', 1, 2000000),
-(23, '2022-11-12', '0', 10, 900000),
-(24, '2022-11-12', '0', 10, 2000000),
-(25, '2022-11-12', '0', 10, 12000000),
-(26, '2022-11-12', '1', 1, 10000000),
-(27, '2022-11-13', '0', 1, 4275000),
-(28, '2022-11-13', '0', 1, 10625000);
 
 -- --------------------------------------------------------
 
@@ -176,8 +100,8 @@ CREATE TABLE `khachhang` (
 INSERT INTO `khachhang` (`id`, `email`, `matkhau`, `hoten`, `ngaysinh`, `gioitinh`, `sdt`, `diachi`, `vai_tro`) VALUES
 (1, 'huyb1910227@gmail.com', 'bbb8aae57c104cda40c93843ad5e6db8', 'Đỗ Thái Gia Huy', '2001-12-18', 'Nam', '0932988029', '221/8, P. Long Hòa, Q. Bình Thủy, TP. Cần Thơ', 0),
 (10, 'hoanguyen@gmail.com', 'bbb8aae57c104cda40c93843ad5e6db8', 'Nguyễn Thị Hoa', '2000-11-08', 'Nữ', '0921772830', '176, P. An Hòa, đường Nguyễn Văn Cừ, Q. Ninh Kiều, TP. Cần Thơ', 0),
-(11, 'khoib1910241@gmail.com', 'bbb8aae57c104cda40c93843ad5e6db8', 'Nguyễn Minh Khôi', '1999-03-10', 'Nam', '0981772661', '21/78', 1),
-(13, 'student@cit.ctu.edu.vn', '25d55ad283aa400af464c76d713c07ad', 'Nguyễn Văn A', '2000-11-03', 'Nam', '0932988567', '12/867', 0);
+(11, 'khoib1910241@gmail.com', 'bbb8aae57c104cda40c93843ad5e6db8', 'Nguyễn Minh Khôi', '1999-03-10', 'Nam', '0981772661', '223/67, P.Long Tuyền, đường 91B', 1),
+(13, 'student@cit.ctu.edu.vn', '25d55ad283aa400af464c76d713c07ad', 'Nguyễn Văn A', '2000-11-03', 'Nam', '0932988567', '176, P. An Hòa, đường Nguyễn Văn Cừ, Q. Ninh Kiều, TP. Cần Thơ', 0);
 
 -- --------------------------------------------------------
 
@@ -197,7 +121,7 @@ CREATE TABLE `loaisanpham` (
 INSERT INTO `loaisanpham` (`id`, `tenloai`) VALUES
 (1, 'Kính mát'),
 (2, 'Kính thường'),
-(3, 'Kính cận.');
+(3, 'Kính cận');
 
 -- --------------------------------------------------------
 
@@ -302,19 +226,19 @@ ALTER TABLE `sanpham`
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
